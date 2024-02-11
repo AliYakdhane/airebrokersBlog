@@ -2182,7 +2182,123 @@ li
       
   
       
+      @keyframes cdp-in {
+        from {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
       
+      .cdp {
+        position: relative;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 0;
+        z-index: 6;
+        margin: 50px 0;
+        animation: cdp-in 500ms ease both;
+      }
+      
+      .cdp_i {
+        font-size: 14px;
+        text-decoration: none;
+        transition: background 250ms;
+        display: inline-block;
+        text-transform: uppercase;
+        margin: 0 3px 6px;
+        height: 38px;
+        min-width: 38px;
+        border-radius: 38px;
+        border: 2px solid #232D8E;
+        line-height: 38px;
+        padding: 0;
+        color: #232D8E;
+        font-weight: 700;
+        letter-spacing: .03em;
+        display: none;
+      }
+    
+        
+      .cdp_i:first-child,
+      .cdp_i:last-child {
+        margin: 0 12px 6px;
+      }
+      .cdp_i:last-child,
+      .cdp_i:nth-child(2),
+      .cdp_i:nth-last-child(2) {
+        display: inline-block;
+        margin: 0 12px 6px;
+      }
+      
+      .cdp_i:hover {
+        background-color: #F15A24;
+        color: #fff;
+      }
+      
+      .cdp[actpage="1"] .cdp_i:first-child,
+      .cdp[actpage="1"] .cdp_i:nth-child(2) {
+        display: inline-block;
+      }
+      
+      /* Loop for pagination */
+      @for $i from 1 through 80 {
+        .cdp[actpage="#{$i}"] {
+          .cdp_i:nth-child(#{$i - 2}):not(:first-child):not(:nth-child(2)) {
+            display: inline-block;
+            pointer-events: none;
+            color: transparent;
+            border-color: transparent;
+            width: 50px;
+            &:after {
+              content: '...';
+              color: #fff;
+              font-size: 32px;
+              margin-left: -6px;
+            }
+          }
+      
+          .cdp_i:nth-child(#{$i - 1}):not(:first-child) {
+            display: inline-block;
+          }
+      
+          .cdp_i:nth-child(#{$i}):not(:first-child) {
+            display: inline-block;
+          }
+      
+          .cdp_i:nth-child(#{$i + 1}) {
+            background-color: #;
+            color: #fff;
+            display: inline-block;
+          }
+      
+          .cdp_i:nth-child(#{$i + 2}):not(:last-child) {
+            display: inline-block;
+          }
+      
+          .cdp_i:nth-child(#{$i + 3}):not(:last-child) {
+            display: inline-block;
+          }
+      
+          .cdp_i:nth-child(#{$i + 4}):not(:last-child):not(:nth-last-child(2)) {
+            display: inline-block;
+            pointer-events: none;
+            color: transparent;
+            border-color: transparent;
+            width: 50px;
+            &:after {
+              content: '...';
+              color: #fff;
+              font-size: 32px;
+              margin-left: -6px;
+            }
+          }
+        }
+      }
+            
 
       
       
