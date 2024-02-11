@@ -2012,7 +2012,7 @@ li
         }
         .projcard {
             max-width: 1000px;
-            height: 500px;
+            height: auto;
             margin-bottom: 40px;
             border-radius: 10px;
             background-color: #fff;
